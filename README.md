@@ -18,3 +18,12 @@ i3-gaps vim alacritty libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-
 To install picom, I use [this picom fork](https://github.com/ibhagwan/picom.git)
 
 To copy the config files in your $HOME/.config, just run `install.sh` (you may need to chmod it before)
+
+# Gallery
+
+![Yep, Discord is indeed blurred !](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/discord.png)
+![And VS Code is blurred too !](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/vscode.png)
+![Let me introduce BTOP, an more informative alternative to HTOP](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/btop.png)
+
+# Thanks
+I wanted to thank the *nixporn community on Reddit and Discord for them liking my rice and being so nice. Do not hesitate to contact me if you have a problem with anything related to the installation of these dots or not ! 
