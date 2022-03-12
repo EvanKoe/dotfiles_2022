@@ -10,6 +10,8 @@ Picom adds blur, small fading animations (really quickly, I don't like long anim
 I chose Alacritty because it has built-in background transparency that is supported in Picom (Konsole didn't)  
 Also my i3 config is a bit messy, because I installed it yesterday, and I didn't really have the time to organize it.  
 
+You can also find the wallpaper [here](https://wallpaperhub.app/collections/2863)
+
 # Installation
 To install this config, I made an installation script which copies those config files into your $HOME/.config folder. But before, you'll need dependencies (most of them are used in picom, and in the picom readme, it is noted that those dependencies aim at Debian systems, so do not worry if they don't install correctly) :
 ```
