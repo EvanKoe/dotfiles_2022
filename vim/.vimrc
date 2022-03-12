@@ -10,8 +10,10 @@ autocmd InsertEnter,InsertLeave * set cul!
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 
+" puts Tab key to insert mode
 map <Tab> a <Tab>
 
+# plugins
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 Plug 'jiangmiao/auto-pairs'

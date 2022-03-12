@@ -1,19 +1,22 @@
 # config by Evan Koehler
 
-# gaps + window related
+# gaps - rerquire i3-gaps
 gaps outer 0
 gaps inner 10
+
+# disable window borders
 default_floating_border pixel 0
 default_border pixel 0
 for_window [class="^.*"] border pixel 0
-#for_window [class="konsole"] border pixel 5; floating enable; resize set 1500 900; move window to position 200 100
+
+# focus follows mouse disabled (remove the line to enable it)
 focus_follows_mouse no
 
 # starting services
 exec --no-startup-id setxkbmap fr
 exec --no-startup-id redshift -O 4000
 exec --no-startup-id feh --fill --bg-scale $HOME/Pictures/Wallpapers/light.jpg
-exec --no-startup-id picom --config $HOME/.config/picom.conf --experimental-backends
+exec --no-startup-id picom --config $HOME/.config/picom/picom.conf --experimental-backends
 
 # my keybindings
 bindsym $mod+w exec alacritty
@@ -25,6 +28,10 @@ bindsym $mod+d exec rofi -show drun -run-shell-command '{terminal} -e fish -ic "
 
 set $mod Mod4
 
+
+#
+# The remaining part of this file is the default i3 config
+#
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
