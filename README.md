@@ -4,7 +4,7 @@ These are the dotfiles for glassy (fluent) i3 gaps. If you are looking for KDE/i
 # Purpose
 This is a small configuration for i3-gaps with picom (compositor), alacritty (terminal emulator), and vim (text editor).
 
-![this config screenshot](https://github.com/EvanKoe/dotfiles_2022/blob/main/screen.png)
+![this config screenshot](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/screen.png)
 
 Picom adds blur, small fading animations (really quickly, I don't like long animations, I am speed) and rounded corners.  
 I chose Alacritty because it has built-in background transparency that is supported in Picom (Konsole didn't)  
