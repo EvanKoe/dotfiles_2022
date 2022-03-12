@@ -1,0 +1,22 @@
+window:
+  padding:
+    x: 20
+    y: 20
+
+  opacity: 0.1
+
+font:
+  normal:
+    style: Medium
+    family: JetBrains Mono
+  size: 14.0
+
+colors:
+  primary:
+    background: '#eeeeee'
+    foreground: '#ffffff'
+
+shell:
+  program: /bin/fish
+  args:
+    - --login
