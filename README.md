@@ -21,6 +21,49 @@ To install picom, I use [this picom fork](https://github.com/ibhagwan/picom.git)
 
 To copy the config files in your $HOME/.config, just run `install.sh` (you may need to chmod it before)
 
+# System Usage
+In this i3 config, there are many mods to make your life easier (many things that are supported by default on any DE but not in tiling WMs) :
+
+## Resize mode (default)
+Press `mod+r` to enter resize mod while focusing a window :
+- left arrow will extend the window on the left,
+- right arrow will extend the window on the right,
+- up arrow will extend the window upside,
+- down arrow will extend the window downside,
+You can also use the vim shortcuts (hjkl).
+
+## Infos mode
+Press `mod+s` to enter infos mod at any time :
+- d to get infos about date and time on a dmenu,
+- w to get wifi about the connected network (if any),
+- b to get battery infos (state, current percentage, time to full/empty),
+- s to get sound infos (muted ? current volume)  
+  
+If this doesn't work, please be sure that dmenu is installed :
+### debian/ubuntu based
+`sudo apt install dmenu`
+### fedora/red hat based
+`sudo dnf install dmenu`
+### arch based
+`sudo pacman -S dmenu`
+
+## STFU mode
+Press `mod+Return` to enter STFU mode at any time :
+- Ctrl+s to shutdown,
+- r to reboot,
+- l to logout
+Indeed, STFU means "Shut the fuck up" :)
+
+## Display mode
+Press `mod+p` to enter display mode at any time :
+- r to extend your screen to the right using HDMI screen,
+- l to extend your screen to the left using HDMI screen,
+- d to duplicate your screen using HDMI screen,
+- n to disable HDMI screen,
+
+## Warning !
+Those modes are designed to fit my needs, on my computer. So, if there is anything that doesn't work, try installing the dependencies that are called in the config file (xrandr, iwctl, dmenu, upower...).
+
 # Gallery
 
 ![Yep, Discord is indeed blurred !](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/discord.png)
