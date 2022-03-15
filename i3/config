@@ -1,24 +1,22 @@
 # config by Evan Koehler
 
-# gaps - rerquire i3-gaps
+# gaps + window related
 gaps outer 0
 gaps inner 10
-
-# disable window borders
 default_floating_border pixel 0
 default_border pixel 0
 for_window [class="^.*"] border pixel 0
-
-# focus follows mouse disabled (remove the line to enable it)
+#for_window [class="konsole"] border pixel 5; floating enable; resize set 1500 900; move window to position 200 100
 focus_follows_mouse no
 
 # starting services
 exec --no-startup-id setxkbmap fr
 exec --no-startup-id redshift -O 4000
 exec --no-startup-id feh --fill --bg-scale $HOME/Pictures/Wallpapers/light.jpg
-exec --no-startup-id picom --config $HOME/.config/picom/picom.conf --experimental-backends
+exec --no-startup-id picom --config $HOME/.config/picom.conf --experimental-backends
 
 # my keybindings
+bindsym $mod+l exec i3lock -i $HOME/Pictures/Wallpapers/light.png -e -f
 bindsym $mod+w exec alacritty
 bindsym $mod+a exec chromium
 bindsym $mod+e exec dolphin
@@ -28,10 +26,6 @@ bindsym $mod+d exec rofi -show drun -run-shell-command '{terminal} -e fish -ic "
 
 set $mod Mod4
 
-
-#
-# The remaining part of this file is the default i3 config
-#
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -78,10 +72,10 @@ floating_modifier $mod
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -203,6 +197,29 @@ mode "stfu" {
 }
 
 bindsym $mod+BackSpace mode "stfu"
+
+mode "infos" {
+        bindsym b exec $HOME/.config/i3/battery.sh; mode "default"
+        bindsym d exec echo "$(date +"%H:%M :: %a %D")" | dmenu; mode "default"
+        bindsym w exec echo 01100101 | sudo -S iwctl station wlan0 show | grep "Connected network" | xargs | dmenu; mode "default"
+        bindsym s exec $HOME/.config/i3/volume.sh | dmenu; mode "default"
+
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+s mode "infos"
+
+mode "display" {
+        bindsym r exec xrandr --output HDMI-1 --auto --right-of eDP-1; mode "default"
+        bindsym l exec xrandr --output HDMI-1 --auto --left-of eDP-1; mode "default"
+        bindsym d exec xrandr --output HDMI-1 --auto --same-as eDP-1; mode "default"
+        bindsym n exec xrandr --output HDMI-1 --off; mode "default"
+
+        bindsym Escape mode "default"
+        bindsym $mod+p mode "default"
+}
+
+bindsym $mod+p mode "display"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
