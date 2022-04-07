@@ -66,6 +66,7 @@ Those modes are designed to fit my needs, on my computer. So, if there is anythi
 
 # Gallery
 
+![Here is my NVim config, it is not fully featured, but it's enough for me to code in C++](https://github.com/EvanKoe/dotfiles_2022/main/Screenshots/nvim.png)
 ![Yep, Discord is indeed blurred !](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/discord.png)
 ![And VS Code is blurred too !](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/vscode.png)
 ![Let me introduce BTOP, an more informative alternative to HTOP](https://github.com/EvanKoe/dotfiles_2022/blob/main/Screenshots/btop.png)
