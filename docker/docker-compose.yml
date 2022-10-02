@@ -1,0 +1,11 @@
+services:
+  web:
+    build: ~/Docs/c/rtype/
+    ports:
+      - "8000:5000"
+    volumes:
+      - .:/home/ekoehler/Docs/
+    environment:
+      DISPLAY: ":0"
+      EDITOR: "vim"
+

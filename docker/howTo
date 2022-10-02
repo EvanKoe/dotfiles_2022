@@ -1,0 +1,4 @@
+create a Dockerfile
+create a docker-compose.yml
+sudo docker build -t NAME CURRDIR
+sudo docker run -it --rm --net host -v /home/ekoehler/Docs/c/rtype:/tmp/workspace  -v $HOME/.Xauthority:/root/.Xauthority -w /tmp/workspace rtype /bin/bash

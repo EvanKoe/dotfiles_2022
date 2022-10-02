@@ -1,0 +1,156 @@
+# Variables
+set $mod Mod4
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Basic configuration
+input type:touchpad {
+	tap enabled
+}
+
+input * {
+	xkb_layout "fr"
+}
+
+default_border pixel 0
+default_floating_border pixel 0
+gaps outer 0
+gaps inner 10
+
+# Windows rules
+#
+# to add another window, use 'swaymsg -t get_tree | grep class'
+for_window [class="jetbrains-studio"] floating enable
+
+border_images.focused "$HOME/.config/sway/borders/shadows.png"
+border_images.focused_inactive "$HOME/.config/sway/borders/shadows.png"
+border_images.unfocused "$HOME/.config/sway/borders/shadows.png"
+border_images.urgent "$HOME/.config/sway/borders/shadows.png"
+
+# Wallpaper
+output "*" bg "$HOME/Pictures/wallpapers/homemade/pastelarch-pastel.png" fill
+
+# Mod4 is Windows Button
+
+# Bindsyms
+bindsym $mod+w exec alacritty
+bindsym $mod+a  exec chromium
+bindsym $mod+q kill
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 4%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 4%+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+shift+c exec swaymsg reload
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+c exec hyprpicker | wl-copy
+
+# Lockscreen
+bindsym $mod+l exec swaylock --ignore-empty-password --show-failed-attempts --image "$HOME/Pictures/wallpapers/homemade/Google lightarch-googleLight.png" --indicator-caps-lock --scaling fill --font "JetBrains Mono"
+
+# Startup
+focus_follows_mouse no
+floating_modifier $mod
+exec --no-startup-id redshift -O 4000 -m wayland
+
+
+# Move and virtual desktops
+bindsym {
+	$mod+Left focus left
+	$mod+Right focus right
+	$mod+Down focus down
+	$mod+Up focus up
+
+	$mod+Shift+Left move left
+	$mod+Shift+Down move down
+	$mod+Shift+Up move up
+	$mod+Shift+Right move right
+
+	$mod+h split h
+	$mod+v split v
+
+	$mod+f fullscreen toggle
+	$mod+shift+space floating toggle
+
+	$mod+ampersand workspace number $ws1
+	$mod+eacute workspace number $ws2
+	$mod+quotedbl workspace number $ws3
+	$mod+apostrophe workspace number $ws4
+	$mod+parenleft workspace number $ws5
+	$mod+minus workspace number $ws6
+	$mod+egrave workspace number $ws7
+	$mod+underscore workspace number $ws8
+	$mod+ccedilla workspace number $ws9
+	$mod+agrave workspace number $ws10
+
+  $mod+1 move container to workspace number $ws1
+  $mod+2 move container to workspace number $ws2
+  $mod+3 move container to workspace number $ws3
+  $mod+4 move container to workspace number $ws4
+  $mod+5 move container to workspace number $ws5
+  $mod+6 move container to workspace number $ws6
+  $mod+7 move container to workspace number $ws7
+  $mod+8 move container to workspace number $ws8
+  $mod+9 move container to workspace number $ws9
+  $mod+0 move container to workspace number $ws10
+}
+
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
+mode "display" {
+  bindsym r exec xrandr --output HDMI-1 --auto --right-of eDP-1; mode "default"
+  bindsym l exec xrandr --output HDMI-1 --auto --left-of eDP-1; mode "default"
+  bindsym d exec xrandr --output HDMI-1 --auto --same-as eDP-1; mode "default"
+  bindsym n exec xrandr --output HDMI-1 --off; mode "default"
+
+  bindsym Escape mode "default"
+  bindsym $mod+p mode "default"
+}
+
+bindsym $mod+p mode "display"
+
+
+mode "stfu" {
+  bindsym Ctrl+S exec shutdown now
+  bindsym r exec shutdown -r 0
+  bindsym l exec i3-msg exit
+
+  bindsym Escape mode "default"
+  bindsym $mod+BackSpace mode "default"
+}
+
+bindsym $mod+BackSpace mode "stfu"
+
+
+mode "resize" {
+  bindsym j resize shrink width 20 px or 20 ppt
+  bindsym k resize grow height 20 px or 20 ppt
+  bindsym l resize shrink height 20 px or 20 ppt
+  bindsym semicolon resize grow width 20 px or 20 ppt
+
+  bindsym Left resize shrink width 20 px or 20 ppt
+  bindsym Down resize grow height 20 px or 20 ppt
+  bindsym Up resize shrink height 20 px or 20 ppt
+  bindsym Right resize grow width 20 px or 20 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
